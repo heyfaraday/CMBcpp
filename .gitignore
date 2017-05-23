@@ -1,6 +1,9 @@
 # Clion
 .idea
 
+# CMake
+cmake-build-debug/
+
 # Bin
 test/*/bin/test*
 test/bin
