@@ -2,7 +2,7 @@
 .idea
 
 # Bin
-test/*/bin
+test/*/bin/test*
 test/bin
 
 # Prerequisites
