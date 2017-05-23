@@ -1,6 +1,10 @@
 # Clion
 .idea
 
+# Bin
+test/*/bin
+test/bin
+
 # Prerequisites
 *.d
 
