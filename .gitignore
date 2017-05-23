@@ -8,6 +8,9 @@ cmake-build-debug/
 test/*/bin/test*
 test/bin
 
+# Jupyter
+*.ipynb_checkpoints
+
 # Data
 data
 test/*/data
