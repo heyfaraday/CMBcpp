@@ -1,0 +1,11 @@
+npix        512
+nmod        128
+nback       128
+nmonte      5
+nring       34
+nphi        50
+hring       20
+hphi        40
+lower_level     -2.0
+top_level       2.0
+nlevel      20

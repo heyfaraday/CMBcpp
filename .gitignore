@@ -5,6 +5,10 @@
 test/*/bin/test*
 test/bin
 
+# Data
+data
+test/*/data
+
 # Prerequisites
 *.d
 
