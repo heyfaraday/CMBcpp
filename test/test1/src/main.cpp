@@ -8,7 +8,8 @@
 
 int main() {
 
-    std::default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
+    std::default_random_engine generator
+            (static_cast<unsigned int>(std::chrono::system_clock::now().time_since_epoch().count()));
 
     typedef std::numeric_limits<long double> dbl;
     std::cout.precision(dbl::max_digits10);

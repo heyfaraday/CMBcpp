@@ -33,7 +33,7 @@ ax = fig.add_axes([0.0, 0.0, 1.0, 1.0])
 ax.axis('off')
 
 cmbmap = Basemap(projection=projection, lon_0=0, resolution='l')
-cmbmap.contourf(x * rad, y * rad, inside_map, 512, cmap=plt.cm.jet, latlon=True)
+cmbmap.contourf(x * rad, y * rad, inside_map, 512, cmap=plt.cm.get_cmap('cool'), latlon=True)
 
 if save_as_png:
     plt.savefig('out.png', dpi=300)

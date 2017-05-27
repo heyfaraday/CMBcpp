@@ -70,7 +70,7 @@ long double area(long double** map, long double level, unsigned int l_1, unsigne
         exit (EXIT_FAILURE);
     }
 
-    if (phi_1 < 0 or phi_1 > npix - 1 or phi_2 < 0 or phi_2 > npix - 1 or phi_1 >= phi_2) {
+    if (phi_1 > npix - 1 or phi_2 > npix - 1 or phi_1 >= phi_2) {
         std::cout << "Wrong range! phi_1: " << phi_1 << " phi_2: " << phi_2 << std::endl;
         exit (EXIT_FAILURE);
     }

@@ -807,7 +807,7 @@ unsigned int singular_points_classifier_area(long double** q, long double** u, l
         exit (EXIT_FAILURE);
     }
 
-    if (phi_1 < 0 or phi_1 > npix - 1 or phi_2 < 0 or phi_2 > npix - 1 or phi_1 >= phi_2) {
+    if (phi_1 > npix - 1 or phi_2 > npix - 1 or phi_1 >= phi_2) {
         std::cout << "Wrong range! phi_1: " << phi_1 << " phi_2: " << phi_2 << std::endl;
         exit (EXIT_FAILURE);
     }

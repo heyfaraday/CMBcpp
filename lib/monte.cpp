@@ -235,12 +235,12 @@ void circles_area_map(long double** map, long double level, long double** out_ma
                           i_center,
                           i_center + hphi - 1);
 
-                for (int i = i_center; i < i_center + hphi; ++i) {
-                    for (int j = npix / 4 + j_center; j <= npix / 2 - 3; ++j) {
+                for (unsigned int i = i_center; i < i_center + hphi; ++i) {
+                    for (unsigned int j = npix / 4 + j_center; j <= npix / 2 - 3; ++j) {
                         out_map[i][j] = v1;
                     }
 
-                    for (int j = 1;
+                    for (unsigned int j = 1;
                          j <= npix / 4 - j_center - 1; ++j) {
                         out_map[i][j] = v2;
                     }
@@ -256,12 +256,12 @@ void circles_area_map(long double** map, long double level, long double** out_ma
                           i_center,
                           i_center + hphi - 1);
 
-                for (int i = i_center; i < i_center + hphi; ++i) {
-                    for (int j = npix / 4 + j_center; j <= npix / 4 + j_center + static_cast<unsigned int>(hring / sinl(theta)); ++j) {
+                for (unsigned int i = i_center; i < i_center + hphi; ++i) {
+                    for (unsigned int j = npix / 4 + j_center; j <= npix / 4 + j_center + static_cast<unsigned int>(hring / sinl(theta)); ++j) {
                         out_map[i][j] = v1;
                     }
 
-                    for (int j = npix / 4 - j_center - static_cast<unsigned int>(hring / sinl(theta));
+                    for (unsigned int j = npix / 4 - j_center - static_cast<unsigned int>(hring / sinl(theta));
                          j <= npix / 4 - j_center - 1; ++j) {
                         out_map[i][j] = v2;
                     }
@@ -315,12 +315,12 @@ void circles_length_map(long double** map, long double level, long double** out_
                           i_center,
                           i_center + hphi - 1);
 
-                for (int i = i_center; i < i_center + hphi; ++i) {
-                    for (int j = npix / 4 + j_center; j <= npix / 2 - 3; ++j) {
+                for (unsigned int i = i_center; i < i_center + hphi; ++i) {
+                    for (unsigned int j = npix / 4 + j_center; j <= npix / 2 - 3; ++j) {
                         out_map[i][j] = v1;
                     }
 
-                    for (int j = 1;
+                    for (unsigned int j = 1;
                          j <= npix / 4 - j_center - 1; ++j) {
                         out_map[i][j] = v2;
                     }
@@ -336,12 +336,12 @@ void circles_length_map(long double** map, long double level, long double** out_
                           i_center,
                           i_center + hphi - 1);
 
-                for (int i = i_center; i < i_center + hphi; ++i) {
-                    for (int j = npix / 4 + j_center; j <= npix / 4 + j_center + static_cast<unsigned int>(hring / sinl(theta)); ++j) {
+                for (unsigned int i = i_center; i < i_center + hphi; ++i) {
+                    for (unsigned int j = npix / 4 + j_center; j <= npix / 4 + j_center + static_cast<unsigned int>(hring / sinl(theta)); ++j) {
                         out_map[i][j] = v1;
                     }
 
-                    for (int j = npix / 4 - j_center - static_cast<unsigned int>(hring / sinl(theta));
+                    for (unsigned int j = npix / 4 - j_center - static_cast<unsigned int>(hring / sinl(theta));
                          j <= npix / 4 - j_center - 1; ++j) {
                         out_map[i][j] = v2;
                     }
@@ -529,12 +529,12 @@ void circles_singular_points_map(long double** q, long double** u, long double**
                                                      i_center,
                                                      i_center + hphi - 1, type);
 
-                for (int i = i_center; i < i_center + hphi; ++i) {
-                    for (int j = npix / 4 + j_center; j <= npix / 2 - 3; ++j) {
+                for (unsigned int i = i_center; i < i_center + hphi; ++i) {
+                    for (unsigned int j = npix / 4 + j_center; j <= npix / 2 - 3; ++j) {
                         out_map[i][j] = v1;
                     }
 
-                    for (int j = 1;
+                    for (unsigned int j = 1;
                          j <= npix / 4 - j_center - 1; ++j) {
                         out_map[i][j] = v2;
                     }
@@ -550,12 +550,12 @@ void circles_singular_points_map(long double** q, long double** u, long double**
                                                      i_center,
                                                      i_center + hphi - 1, type);
 
-                for (int i = i_center; i < i_center + hphi; ++i) {
-                    for (int j = npix / 4 + j_center; j <= npix / 4 + j_center + static_cast<unsigned int>(hring / sinl(theta)); ++j) {
+                for (unsigned int i = i_center; i < i_center + hphi; ++i) {
+                    for (unsigned int j = npix / 4 + j_center; j <= npix / 4 + j_center + static_cast<unsigned int>(hring / sinl(theta)); ++j) {
                         out_map[i][j] = v1;
                     }
 
-                    for (int j = npix / 4 - j_center - static_cast<unsigned int>(hring / sinl(theta));
+                    for (unsigned int j = npix / 4 - j_center - static_cast<unsigned int>(hring / sinl(theta));
                          j <= npix / 4 - j_center - 1; ++j) {
                         out_map[i][j] = v2;
                     }
