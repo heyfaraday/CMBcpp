@@ -8,6 +8,9 @@ cmake-build-debug/
 test/*/bin/test*
 test/bin
 
+# Fits
+*.fits
+
 # Jupyter
 *.ipynb_checkpoints
 

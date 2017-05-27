@@ -8,9 +8,10 @@ set(CMAKE_CXX_FLAGS "-Weverything -Ofast")
 
 # Healpix
 include_directories(/usr/local/cHealpix/include)
+include_directories(/usr/local/Cellar/healpix/3.31/include/healpix_cxx)
 
-# FFTW3
-set(CMAKE_EXE_LINKER_FLAGS "-lfftw3l")
+# FFTW3 and HEALPIX_CXX
+set(CMAKE_EXE_LINKER_FLAGS "-lfftw3l -lhealpix_cxx")
 
 # Initial main.cpp
 set(SOURCE_FILES main.cpp)
