@@ -4,24 +4,24 @@ from math import pi
 import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 
-map_from_file = genfromtxt('../data/map.dat')
+map_from_file = genfromtxt('../data/healpix_map.dat')
 
-N = 1024
+N = 512
+npix = 786432
 projection = 'moll'  # 'cyl', 'moll', 'ortho'
 save_as_png = False
 save_as_svg = False
 
-inside_map = zeros((int(N + 1), int(N / 2 + 1)))
-x = zeros((int(N + 1), int(N / 2 + 1)))
-y = zeros((int(N + 1), int(N / 2 + 1)))
+inside_map = zeros((int(npix + 1), 3))
+y = zeros((int(npix + 1), 3))
+x = zeros((int(npix + 1), 3))
 
-for i in range(0, int(N + 1)):
-    for j in range(0, int(N / 2 + 1)):
-        x[i][j] = 2.0 * i / N * pi - pi
-        y[i][j] = 2.0 * j / N * pi - pi / 2.0
+for i in range(0, npix):
+    y[i][0] = map_from_file[i][0]
+    x[i][0] = map_from_file[i][1]
 
-for i in range(0, int(N + 1) * int(N / 2 + 1)):
-    inside_map[int(map_from_file[i][0])][int(map_from_file[i][1])] = map_from_file[i][2]
+for i in range(0, npix):
+    inside_map[i][0] = map_from_file[i][2]
 
 rad = 180.0 / pi
 

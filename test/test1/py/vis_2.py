@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.basemap import Basemap
 
 map_from_file = genfromtxt('../data/map.dat')
-points_from_file = genfromtxt('../data/points.dat').T
+points_from_file = genfromtxt('../data/type_points.dat').T
 
-N = 512
+N = 1024
 projection = 'cyl'  # 'cyl', 'moll', 'ortho'
 save_as_png = False
 save_as_svg = False
@@ -38,14 +38,28 @@ cmbmap.contourf(x * rad, y * rad, inside_map, 512, cmap=plt.cm.jet, latlon=True)
 
 marker = ''
 
-for i in range(0, size(points_from_file[0])):
-    if points_from_file[2][i] == 0:
-        marker = '.'
-    elif points_from_file[2][i] == 1:
-        marker = 'x'
-    elif points_from_file[2][i] == 2:
-        marker = '+'
-    cmbmap.scatter((points_from_file[0][i] - pi) * rad, (points_from_file[1][i] - pi / 2.0) * rad, marker=marker)
+# # for i in range(0, size(points_from_file[0])):
+# for i in range(0, 1000):
+#
+#     if points_from_file[2][i] == 0:
+#         marker = '.'
+#     elif points_from_file[2][i] == 1:
+#         marker = 'x'
+#     elif points_from_file[2][i] == 2:
+#         marker = '+'
+#     cmbmap.scatter((points_from_file[0][i] - pi) * rad, (points_from_file[1][i] - pi / 2.0) * rad, marker=marker)
+
+# for i in range(0, size(points_from_file[0])):
+for i in range(0, 1000):
+
+    if points_from_file[3][i] == 0:
+        points_marker = '.'
+    elif points_from_file[3][i] == 1:
+        points_marker = 'x'
+    elif points_from_file[3][i] == 2:
+        points_marker = '+'
+    cmbmap.scatter((points_from_file[0][i] - pi) * rad, (points_from_file[1][i] - pi / 2.0) * rad,
+                   marker=marker)
 
 if save_as_png:
     plt.savefig('out.png', dpi=300)

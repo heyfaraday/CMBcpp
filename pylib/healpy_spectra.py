@@ -46,7 +46,7 @@ def alm_gen(work_map, lmax=0, pol=False):
 
     if pol:
         if np.shape(work_map)[0] is not 3:
-            print(np.shape(work_map)[0] is not 3)
+            print("np.shape(work_map)[0] is not 3")
             return None
         else:
             return hp.sphtfunc.map2alm(work_map, lmax=lmax, pol=True, use_weights=True)
