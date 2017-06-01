@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ostream>
+
 class Alm_Base {
 
 private:
@@ -11,6 +13,8 @@ private:
 public:
 
     Alm_Base(unsigned int n_mod);
+
+    void setArray_cos(long double **array_cos);
 
     virtual ~Alm_Base();
 

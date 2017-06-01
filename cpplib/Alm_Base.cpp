@@ -122,3 +122,7 @@ void Alm_Base::fin(std::string name_cos, std::string name_sin) const {
     fclose(fp_cos);
     fclose(fp_sin);
 }
+
+void Alm_Base::setArray_cos(long double **array_cos) {
+    Alm_Base::array_cos = array_cos;
+}
