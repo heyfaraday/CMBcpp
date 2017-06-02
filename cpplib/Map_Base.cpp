@@ -1,5 +1,6 @@
 #include <cassert>
 #include <string>
+#include <iostream>
 
 #include "Map_Base.hpp"
 
@@ -10,7 +11,7 @@ Map_Base::Map_Base(unsigned int n_pix_input) {
     array = new long double*[n_pix + 1];
     assert(array != nullptr);
 
-    for(unsigned int i = 0; i <= n_pix; ++i) {
+    for (unsigned int i = 0; i <= n_pix; ++i) {
         array[i] = new long double[n_pix / 2 + 1]();
         assert(array[i] != nullptr);
     }
@@ -18,14 +19,13 @@ Map_Base::Map_Base(unsigned int n_pix_input) {
 
 Map_Base::~Map_Base() {
 
-    for(unsigned int i = 0; i <= n_pix; ++i) {
-        delete [] array[i];
+    for (unsigned int i = 0; i <= n_pix; ++i) {
+        delete[] array[i];
     }
-
-    delete [] array;
+    delete[] array;
 }
 
-unsigned int Map_Base::n_pix_value() const {
+unsigned int Map_Base::get_n_pix() const {
     return n_pix;
 }
 
@@ -37,28 +37,34 @@ long double Map_Base::at(unsigned int i, unsigned int j) const {
     return array[i][j];
 }
 
-void Map_Base::to(unsigned int i, unsigned int j, long double pix) {
+void Map_Base::to(unsigned int i, unsigned int j, long double value) {
 
     assert(i >= 0 and i <= n_pix);
     assert(j >= 0 and j <= n_pix / 2);
 
-    array[i][j] = pix;
+    array[i][j] = value;
 }
 
 long double Map_Base::at_border(unsigned int i, unsigned int j) const {
 
     assert(i >= 0 and i <= n_pix);
-    assert(j > 0 and j < n_pix / 2);
+    assert(j >= 1 and j <= n_pix / 2 - 1);
 
     return array[i][j];
 }
 
-void Map_Base::to_border(unsigned int i, unsigned int j, long double pix) {
+void Map_Base::to_border(unsigned int i, unsigned int j, long double value) {
 
     assert(i >= 0 and i <= n_pix);
-    assert(j > 0 and j < n_pix / 2);
+    assert(j >= 1 and j <= n_pix / 2 - 1);
 
-    array[i][j] = pix;
+    array[i][j] = value;
+
+    if (i == 0) {
+        array[n_pix][j] = array[0][j];
+    } else if (i == n_pix) {
+        array[0][j] = array[n_pix][j];
+    }
 }
 
 void Map_Base::fout(std::string name) const {
@@ -74,19 +80,17 @@ void Map_Base::fout(std::string name) const {
     fclose(fp);
 }
 
-void Map_Base::fin(std::string name) const {
+void Map_Base::fin(std::string name) {
 
     unsigned int i;
     unsigned int j;
-    long double pix;
+    long double value;
 
     FILE* fp = fopen(name.c_str(), "r");
 
     while(!feof(fp)) {
-        fscanf(fp,"%u %u %Lf \n", &i, &j, &pix);
-        assert(i >= 0 and i <= n_pix);
-        assert(j >= 0 and j <= n_pix / 2);
-        array[i][j] = pix;
+        fscanf(fp, "%u %u %Lf \n", &i, &j, &value);
+        this->to(i, j, value);
     }
 
     fclose(fp);
