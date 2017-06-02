@@ -95,3 +95,16 @@ void Map_Base::fin(std::string name) {
 
     fclose(fp);
 }
+
+void Map_Base::fout_8(std::string name) const {
+
+    FILE* fp = fopen(name.c_str(), "w");
+
+    for (unsigned int i = 0; i <= n_pix; ++i) {
+        for (unsigned int j = 0; j <= n_pix / 2; ++j) {
+            fprintf(fp, "%u %u %.8Le \n", i, j, array[i][j]);
+        }
+    }
+
+    fclose(fp);
+}

@@ -27,4 +27,6 @@ public:
 
     void fin(std::string name);
 
+    void fout_8(std::string name) const;
+
 };
