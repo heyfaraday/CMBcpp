@@ -55,7 +55,7 @@ int main(int argc,char **argv)
 
 // create the fitshandle to the power spectra file
     fitshandle myCl;
-    myCl.create("myCl.fits");
+    myCl.create("../data/myCl.fits");
 
 // write the power spectrum to the file:
     write_powspec_to_fits(myCl, mySpec, 1);
