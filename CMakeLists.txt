@@ -23,11 +23,5 @@ add_subdirectory(lib)
 # Link lib
 include_directories(lib)
 
-# CppLib
-add_subdirectory(cpplib)
-
-# Link cpplib
-include_directories(cpplib)
-
 # Tests
 add_subdirectory(test)
